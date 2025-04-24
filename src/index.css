@@ -1,0 +1,131 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 222 47% 11%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 210 100% 50%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 16% 47%;
+
+    --accent: 210 40% 96%;
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 222 84% 5%;
+
+    --radius: 0.75rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Custom scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/20 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground/30;
+  }
+
+  /* Typography improvements */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display tracking-tight;
+  }
+}
+
+/* Glass morphism effect */
+@layer components {
+  .glass {
+    @apply bg-white/80 backdrop-blur-lg border border-white/20 shadow-glass transition-all;
+  }
+
+  .glass:hover {
+    @apply shadow-glass-hover;
+  }
+
+  .glass-dark {
+    @apply bg-black/10 backdrop-blur-lg border border-white/10 shadow-glass transition-all;
+  }
+
+  .process-step-animation {
+    @apply transition-all duration-300;
+  }
+  
+  .process-step-enter {
+    @apply opacity-0 -translate-y-4;
+  }
+  
+  .process-step-enter-active {
+    @apply opacity-100 translate-y-0;
+  }
+  
+  .process-step-exit {
+    @apply opacity-100;
+  }
+  
+  .process-step-exit-active {
+    @apply opacity-0 translate-y-4;
+  }
+
+  .button-hover {
+    @apply transition-all duration-300 hover:shadow-elevated hover:scale-[1.02] active:scale-[0.98];
+  }
+
+  /* Process types styling */
+  .process-operation {
+    @apply bg-process-operation;
+  }
+  
+  .process-transport {
+    @apply bg-process-transport;
+  }
+  
+  .process-delay {
+    @apply bg-process-delay;
+  }
+  
+  .process-inspection {
+    @apply bg-process-inspection;
+  }
+  
+  .process-storage {
+    @apply bg-process-storage;
+  }
+}
